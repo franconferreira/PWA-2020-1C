@@ -1,0 +1,22 @@
+uuid() --> unique id (generar un id unico)
+id vs token 
+
+id : numero de transacción
+token : Token contiene información
+
+
+Cabeceras HTTP
+
+    Verbos HTTP | (CRUD) 
+        --> Create (insert)
+        --> Read (select)
+        --> Update (update)
+        --> Delete (delete)
+    
+    POST PUT GET DELETE
+
+    200 -> OK (feliz)
+    300 -> OK + EL DATO ESTA EN CACHÉ (feliz)
+    400 -> ERROR DEL CLIENTE (404 PAGE NOT FOUND) (la cague)
+    500 -> ERROR DE SERVIDOR (la cagó)
+
