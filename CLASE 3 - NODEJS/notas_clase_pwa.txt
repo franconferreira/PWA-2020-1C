@@ -1,0 +1,49 @@
+NodeJS -> Entorno de ejecucion de codigo javascript
+POSTMAN -> Testing API REST (no apto para testers)
+
+npm : Gestor de paquetes de node
+
+Express : Framework (estructura minima de un proyecto web)
+
+express-generator : Programa desarrollado en NodeJS -> generar estructura de carpetas
+    node_modules
+    views
+    public (imagenes/css/javascript)
+    routes
+    configuración
+
+npm i express
+
+[Programa]
+npm i express-generator -g (global)
+[Programa]
+npm i nodemon -g (emula daemon de linux)
+
+
+npm i aglio -g 
+npm i api-blueprint -g
+
+
+Modulos por proyecto
+
+npm i mysql
+npm i mongodb
+npm i jsonwebtoken
+npm i nodemailer
+npm i node2pdf
+npm i util
+npm i mercadopago
+npm i axios
+
+
+Forma de comunicación con el servidor : params y query para url | body para formularios
+    URL
+        --> PARAMETROS ej : /1 /new
+        --> QUERYS ej : ?id=1&price=1000
+
+        req.params
+        req.query
+    FORMULARIOS
+        --> POST (ROW DATA PACKET)
+
+        req.body

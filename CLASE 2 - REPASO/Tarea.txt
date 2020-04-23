@@ -1,0 +1,18 @@
+Crear una clase Transporte
+    caracteristicas
+
+    Metodos
+        -> arrancan
+        -> aceleran
+        --> frenan
+        --> doblar(izq | derecha)
+
+Class Auto extends Transporte
+    --> color
+    --> cant ruedas
+    --> cant máx de personas
+    --> puertas
+    --> velocidad Máxima
+    --> longitud
+    --> Peso
+

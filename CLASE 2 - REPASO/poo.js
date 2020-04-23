@@ -10,7 +10,7 @@
 
 // function funcionX(p1,p2,p3,p4,p5){}
 // vector n componentes
-function funcionY(...args){}
+// function funcionY(...args){}
 
 class Persona {
     // atributos -> variables
@@ -20,6 +20,8 @@ class Persona {
     // setter : Insetar / Setear un valor especifico en una propiedad
     // Método especial del paradigma que se ejecuta sin ser llamado
 
+    // SINGLETON
+    
     constructor(object) {
         // Patron creacional para crear el objeto. Se ejecuta cuando se instancia la clase
         this.nombre = object.nombre || 'no definido';
