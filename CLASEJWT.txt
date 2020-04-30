@@ -1,0 +1,44 @@
+1. npm i jsonwebtoken
+
+2. Tokens | Sesiones (cookies del server)
+
+Cuando se montan arquitecturas más complejas las sesiones no son escalables (locales al servidor)
+Server A <--X--> Server B
+
+ID Unique (string) : 24388133-c19e-4059-9832-2d4dbe8e17d7 
+VS Token : eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c (TRANSPORTA INFORMACION)
+
+
+Tokens : Más escalable la distribución de información del sitio (JWT (JSON web token))
+
+JWT : https://jwt.io/
+Parte I : Cabecera (tiempo de vida token, encriptación, etc)
+Parte II : Payload (información a transportar)
+Parte III : Firma (Validez del token)
+
+Parte I + P2 + P3 -> JWT (ÚNICO) -> Crear un JWT | Valida el JWT (si es valido -> carga el panel | si no es válido -> no tenes acceso a este sitio)
+
+
+Ej : Netflix
+
+30/04 -> eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c (TRANSPORTA INFORMACION) {expiración : "1Y"}
+
+Claves (Publica y Privada)
+       -> Privada -> Se usa para generar la Firma
+       -> Pública -> leer el JWT (Verificar la firma)
+
+
+Necesario : 
+    a. Tener los archivos de clave publica y privada (.pem) --> OK
+    b. incluir jsonwebtoken                                 --> OK
+    c. incluir fs -> file system (OS)                       --> OK
+
+1.  Verificar si el usuario esta registrado --> OK
+2.  Leer la clave privada (generar el JWT) --> OK
+    Definimos las caracteristicas del encabezado (expires, algorithm)
+    Payload (Información encriptada del token) (id , role)
+    JWT : Generación : Token -> Firma (payload, private key, encabezado)
+    Enviar el token al cliente
+
+token válido : 
+eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6InVzZXIiLCJpYXQiOjE1ODgyNTc5NjcsImV4cCI6MTU4ODI2NTE2N30.SZHSqE9kQjx3Q90KVN3koP1YAeXOG655-A7h2kfZTFekJa-4gPaCQBSEhC6mIvgtOgsCcUSIC753pA6ZAOUJlneBQ_C0-DdvdT5Dq3Xsn_xhkM95tym5b88G_D0qpdeUrAwnVsWONzyuzMkeJ5B1eqfGVQwBPp4LRD7_ndSQzok
