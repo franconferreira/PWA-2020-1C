@@ -1,0 +1,205 @@
+1. KNEX -> where , and , insert
+2. MongoDB
+	crear una base datos
+	crear una coleccion
+	insertar elementos (uno | muchos)
+	find ()
+	update
+	delete
+
+3. Introducción a servidores
+
+BLOG
+	usuarios -> id
+			    usuario
+			    password
+			    created
+			    nombre
+			    apellido
+			    fecha de nac
+			    comentarios : [{}]
+			    permisos
+
+	posteos
+			-> id
+			   titulo
+			   contenido
+			   fecha
+			   comentarios
+			   visibilidad
+			   categorias : []
+
+Bases de datos no relacionales : 
+	No existen tablas. Puede escalar horizontalmente de forma sencilla
+	Ventajas : Escalado, gran volumen de datos no estructurados, distribución de datos
+	Desventaja : Tecnologia nueva, herramienta para la administracion
+
+	Caracteristicas : 
+		JSON
+		Bases de datos distribuidas (proporciona elevada disponibilidad de datos)
+		Open source y gratis
+
+	BASES DE DATOS RELACIONALES 
+
+	BASES DE DATOS
+		TABLAS
+			REGISTROS
+
+	BASES DE DATOS NO RELACIONALES
+
+	BASES DE DATOS
+		COLECCION
+			DOCUMENTOS
+
+Primeros pasos 
+C:/Archivos de programa/MongoDB/Server/4.2/bin
+
+-> mongod
+-> mongo
+
+
+Estructura de querys : 
+	db.coleccion.metodo(parametros)
+
+1. create database -> use blog
+
+db -> Objeto principal de Mongo
+
+2. insertOne es un metodo que como parametro acepta un objeto
+
+db.usuarios.insertOne(
+{
+	id : 1,
+	usuario :'francodileo',
+	password : '1234',
+	nombre : 'franco',
+	apellido : 'di leo',
+	permisos : 0
+}
+)
+
+3. show collections
+4. db.usuarios.find()
+5. db.usuarios.find().pretty()
+6. db.usuarios.insertMany(
+	[
+		{},
+		{},
+		{}
+	]
+)
+
+1994-05-04T03:00:00.000Z
+> new Date("1992-04-04")
+
+db.posteos.find({
+visibilidad : 1, 
+_id : ObjectId("5ec3dc7055d788eb68dfdbc1")
+}).pretty()
+
+
+Quiero traer la propiedad titulo de la coleccion posteos cuya visibilidad sea 1
+db.posteos.find({visibilidad : 1},{titulo : 1,contenido : 1, categorias : 0})
+
+Operadores relacionales (> , < ,>= , <=, == )
+
+== : $eq
+> : $gt
+< : $lt
+>= : $gte
+<= : $lte
+<> : $ne
+in : $in
+
+De la tabla posteos los elementos con visibilidad 1 y que tengan 15 o más likes (titulo, categorias)
+db.posteos.find(
+	{visibilidad : {$eq : 1}, cantidad_likes : {$gte : 15}},
+	{titulo : 1, categorias : 1,ejemplo  :1}
+)
+
+db.articulos.find(
+	{precio : {$gte : 50}, precio : {$lte : 100}},
+	{lote : 1, stock : 1 , articulo : 1}
+)
+
+$set, $unset
+
+updateOne, updateMany
+
+db.posteos.updateOne(
+	{_id : { $eq : ObjectId("5ec3dfac55d788eb68dfdbc3")}},
+	{$set : {titulo : 'El primo del tio de la prima de messi', contenido : 'Jon duda de la muerte del familiar'}}
+)
+
+deleteOne , deleteMany
+
+db.posteos.deleteOne(
+{_id : {$eq : ObjectId("5ec3dfac55d788eb68dfdbc3")}}
+)
+
+updateOne | updateMany -> $set permite crear propiedades cuando se ejecut la consulta
+
+limit -> cantidad de elementos que devuelve la query
+sort({propiedad : 1 | 0}) -> ordena una query por propiedad 1 asc 0 desc
+pretty()
+
+$set -> actualizar y crear propiedades
+$unset -> elimina propiedades
+
+db.posteos.updateOne(
+	{_id : ObjectId("5ec3dc1155d788eb68dfdbc0")},
+	{$unset : {categorias : ''}}
+
+)
+
+Propiedades de Arreglos ($push)
+
+db.posteos.updateOne(
+	{_id : ObjectId("5ec3dfe555d788eb68dfdbc4")},
+	{$push : {comentarios : 'Excelente noticia para franco'}}
+)
+
+db.posteos.updateOne(
+	{_id : ObjectId("5ec3dfe555d788eb68dfdbc4")},
+	{$push : {comentarios : {usuario : 'francodileo', fecha : new Date(), comentario : 'Excelente noticia, vamos por más'}}}
+)
+
+sql : SELECT * FROM posteos
+mongo : db.posteos.find()
+
+sql : select * from posteos where id = x
+mongo : db.posteos.find({_id : 'object ID'})
+
+sql : select * from posteos join comentarios on posteo.id = comentario.id where posteos.id = 1
+mongo : db.posteos.find({_id : 'objectID'},{comentarios : 1})
+
+
+Operadores lógicos
+
+$and, $or
+
+db.coleccion.find(
+	{
+		$and : [
+				{precio : { $gte : 1000 }},
+				{stock : {$gt : 0}}
+			   ]
+	},
+	{
+		codigo : 1, 
+		stock : 1,
+		precio : 1, 
+		imagen : 1, 
+		descripcion : 1
+	}
+
+)
+.sort({stock : 1})
+.skip(10)
+.limit(10)
+.pretty()
+
+
+APLICACIONES : CONJUNTO DE MICROSERVICIOS
+
+multer -> contenido multimedia 
