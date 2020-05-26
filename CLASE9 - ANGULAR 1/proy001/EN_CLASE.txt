@@ -1,0 +1,88 @@
+Angular -> Framework  Componente (navbar, footer, productos) 
+    -> Producto final de una aplicacion Angular son archivos .js + .html + .css
+    -> Se pueden crear aplicaciones con angular a través de IONIC4
+React
+    -> Se pueden crear aplicaciones react a traves de react native
+
+NPM 
+    npm i @angular/cli -g (global ya que me permite usar el CLI de angular en cualquier parte de la PC)
+
+
+Angular utiliza typescript (Javavascript POO)
+1.
+    1. Estructura de proyecto
+    2. Lenguaje
+    3. Componentes 
+    4. Routing
+
+2. 
+    Routing
+    Componentes
+    Servicio (intermediario entre back y front)
+3. 
+    Peticiones HTTP (servidor)
+    Formularios (validaciones) -> expresiones regulares
+
+4. 
+    Storage (localStorage, sessionStorage)
+    Guardians
+    EventEmitter (observer)
+
+5.  Busqueda
+    Modales
+    Comunicacion entre componentes
+
+6.  Subida de archivos multimedia (back (multer) + front)
+7.  Routing (child, lazy, etc) + FireBase
+8.  Auth0 (FACEBOOK, GMAIL, GITHUB) 
+
+
+------------------------------------------------------------------------
+e2e -> 
+    end to end (testing) (.spec)     --> RENDIMIENTO DE COMPONENTES (APLICACION EN GENERAL)
+
+node_modules
+
+package.json -> dependencias (npm i)
+
+src/
+    app/
+        1. app-routing.module.ts (routing de la aplicacion)
+        2. app.module.ts (corazón de la aplicacion)
+
+        Componentes : Como mínimo un proyecto angular cuenta con un componente
+        El componente creado por angular cli es app.component
+        
+        Componente (obligatorio)
+            component.html
+            component.ts
+        Componente (opcional)
+            component.spec.ts
+            component.css
+
+app.module.ts
+    -> declarations -> nuetras componentes
+    -> import -> modulos (manejo de formulario, manejo de http, manejo de Swal, manejo de modales)
+    -> providers -> servicios (intermediario entre back front)
+
+Transpilar (pasar de un lenguaje de MUY alto a nivel a un lenguaje de alto nivel javascript)
+
+Navegador solo entiende .js
+Compiling (ts -> js)
+
+ng serve -> levanta una aplicacion angular en el puerto 4200
+         -> ng serve --port 4199
+
+SPA -> Single page application
+
+4 archivos
+app-routing.module.ts
+
+app.component.ts app.component.html app.module.ts index.html
+
+Componente 
+    selector -> Forma de llamar al componente
+    templateUrl
+
+Para crear componentes desde el angular/cli
+    ng g c [carpeta/NombreComponente]

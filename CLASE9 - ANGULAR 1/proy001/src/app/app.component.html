@@ -1,0 +1,22 @@
+<app-navbar></app-navbar>
+
+<h1 class="hola"> ¡ App works ! </h1>
+<h2>{{nombre}} {{apellido}}</h2>
+<h3>{{mail}}</h3>
+<h4>{{mensaje}}</h4>
+<button type="button" (click)="variarContador('sumar')">+</button>
+<button type="button" (click)="variarContador('restar')">-</button>
+{{contador}}
+<br>
+<!-- [value] = {{nombre}} -->
+<input type="text" [(ngModel)] ="nombre">
+<input type="text" [(ngModel)]="apellido">
+<input type="text" [(ngModel)]="mail">
+
+<!-- ngFor, ngIf -->
+<!-- ngIf, ngFor -> selectores de etiqueta -->
+<span *ngIf="nombre.length > 2" class="validar">Nombre valido</span>
+<span *ngIf="apellido.length > 2" class="validar">Apellido valido</span>
+<router-outlet></router-outlet>
+<!-- [] ts -> vista -->
+<!-- () vista -> ts  -->
