@@ -1,3 +1,4 @@
+import { NuevoHeroeComponent } from './components/nuevo-heroe/nuevo-heroe.component';
 // App.js
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -10,6 +11,7 @@ const routes : Routes = [
     // /testing
     {path : 'heroes', component : HeroesComponent},
     {path : 'heroe/:id', component : HeroeComponent},
+    {path : 'new/heroe', component : NuevoHeroeComponent},
     {path : '**', redirectTo : 'heroes'}
 ];
 

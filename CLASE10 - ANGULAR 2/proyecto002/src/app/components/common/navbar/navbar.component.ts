@@ -6,10 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-
-  constructor() { }
+  rutas : any = [];
 
   ngOnInit() {
+    // fontawesome.io
+    // si es administrador
+    this.rutas = [ 
+      {link : 'heroes', description : 'Ver Heroes', icon : 'fa fa-home'},
+      {link : 'new/heroe', description : 'Crear heroe', icon : ''}
+    ]
+    // si es usuario comun
+
   }
 
 }
