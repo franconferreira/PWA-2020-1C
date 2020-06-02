@@ -1,0 +1,38 @@
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-6">
+            <form [formGroup]="form" (ngSubmit)="enviarFormulario()" *ngIf="isLoaded">
+                <div class="form-group">
+                    <label for="nombre">Nombre *</label>
+                    <input type="text" formControlName="nombre" class="form-control" id="nombre" placeholder="Nombre del heroe">
+                    <span class="text-center text-danger" *ngIf="form.get('nombre').status != 'VALID' && form.get('nombre').touched">Campo obligatorio</span>
+                </div>
+                <div class="form-group">
+                    <label for="descripcion">Descripcion *</label>
+                    <input type="text" formControlName="descripcion" class="form-control" id="descripcion" placeholder="Descripcion corta">
+                    <span class="text-center text-danger" *ngIf="form.get('descripcion').status != 'VALID' && form.get('descripcion').touched">Campo obligatorio</span>
+                </div>
+                <div class="form-group">
+                    <label for="casa">Casa * </label>
+                    <select class="form-control" formControlName="casa" id="casa">
+                        <option value="1">Marvel</option>
+                        <option value="2">DC</option>
+                    </select>
+                    <span class="text-center text-danger" *ngIf="form.get('casa').status != 'VALID' && form.get('casa').touched">Campo obligatorio</span>
+                </div>
+                <div class="form-group">
+                    <label for="mail_heroe">Mail *</label>
+                    <input type="email" formControlName="mail_heroe" class="form-control" id="mail_heroe" placeholder="foo@exampe.com">
+                    <span class="text-center text-danger" *ngIf="form.get('mail_heroe').status != 'VALID' && form.get('mail_heroe').touched">Tiene que ser un correo valido</span>
+                </div>
+                     
+                <div class="form-group">
+                    <!-- routerLink -->
+                    <label for="fecha_nacimiento">Fecha de nacimiento *</label>
+                    <input type="date" formControlName="fecha_nacimiento" id="fecha_nacimiento" class="form-control">
+                </div>
+                <button type="submit" [disabled]="form.invalid" class="btn btn-primary btn-block">Agregar</button>
+            </form>
+        </div>
+    </div>
+</div>

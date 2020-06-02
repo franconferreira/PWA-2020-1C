@@ -1,0 +1,27 @@
+https://material.io/design
+
+* SPA
+* Vista Heroes
+* Vista individual (filtrando por heroe) heroe/1 heroe/2
+* Services (Interactuar con los controladores del back)
+
+ng g i models/heroe
+ng g s services/heroes
+
+ng g c components/common/navbar
+ng g c components/heroes
+ng g c components/heroe --skipTests (no crea el archivo spec.ts)
+ng g c components/nuevo-heroe
+------------------------------------------------------------------------
+
+/heroes -> cargar todos los heroes
+/heroe/x -> cargar el heroe x
+
+<router-outlet></router-outlet> Es un selector de ruta que carga componentes de forma dinamica en funcion de la ruta que solicitamos
+
+app-routing.module.ts -> Componente -> app.module -> app-component.html (router-outlet) -> index.html
+
+pipe : Modificador del template
+	angular pipes
+	date
+	moneda

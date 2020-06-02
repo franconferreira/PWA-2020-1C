@@ -1,0 +1,22 @@
+<div class="container mt-5">
+    <div class="row">
+
+        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" *ngFor="let heroe of heroes">
+            <div class="card" style="width: 100%;">
+                <img [src]="heroe.img" class="card-img-top" [alt]="heroe.nombre">
+                <div class="card-body">
+                  <h5 class="card-title">{{heroe.nombre}}</h5>
+                  <p class="card-text">{{heroe.bio}}</p>
+                  <div>
+                      
+                    <small>{{heroe.casa}} | {{heroe.aparicion | date : 'short'}}</small>
+                  </div>
+                  <!-- /heroe/1 -->
+                  <!-- /heroe/id -->
+                  <!-- href -> No se usa -> vuelve a cargar toda la página -->
+                  <a routerLink="/heroe/{{heroe.id}}" class="btn btn-primary btn-block mt-3">Ver más</a>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>
