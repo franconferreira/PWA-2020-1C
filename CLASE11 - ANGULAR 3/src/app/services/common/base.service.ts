@@ -25,8 +25,6 @@ export class BaseService {
   }
   async post(obj){
     try {
-      // http://localhost:3000/api/devices = ${this.urlServer}${this.endpoint}
-      // obj = {key : value}
       return await this.http.post(`${this.urlServer}${this.endpoint}`,obj).toPromise();
     } catch (error) {
       console.log(error);

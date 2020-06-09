@@ -6,19 +6,26 @@ import { BaseService } from '../common/base.service';
 })
 export class HeroesServiceBackend extends BaseService{
   // Service hereda baseservice
-  async getHeroes() {
+  async createHeroe(obj) {
     try {
-      this.setEndPoint('heroes');
-      // environment.url + endpoint -> http://localhost:3000/heroes
+      this.setEndPoint('heroes/new');
+      return this.post(obj);
+    } catch (error) {
+      throw error;
+    }
+  }
+  async getAll() {
+    try {
+      this.setEndPoint('heroes/all');
       return this.get();
     } catch (error) {
       throw error;
     }
   }
-  async createHeroe(obj) {
+  async getSingle(id) {
     try {
-      this.setEndPoint('heroes/new');
-      return this.post(obj);
+      this.setEndPoint(`heroes/single/${id}`);
+      return this.get();
     } catch (error) {
       throw error;
     }

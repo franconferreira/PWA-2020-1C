@@ -4,14 +4,13 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const cors = require('cors');
-
+const dotenv = require('dotenv');
+dotenv.config();
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 const heroesRouter = require('./routes/heroes')
 var app = express();
 app.use(cors());
-// view engine setup
-// CORS POLICY
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 

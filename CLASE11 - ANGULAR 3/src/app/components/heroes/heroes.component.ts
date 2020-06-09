@@ -9,11 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeroesComponent implements OnInit {
   heroes : any = [];
-  numero : number = 1.203153;
-  constructor(private heroesService : HeroesService, private heroesServiceBack : HeroesServiceBackend) { }
+  // singleton
+  constructor(private heroesServiceBack : HeroesServiceBackend) { }
     
-  ngOnInit() {
-    this.heroes = this.heroesService.getHeroes();
+  async ngOnInit() {
+    await this.getAllHeroes();
+  }
+
+  async getAllHeroes() {
+    let result : any = await this.heroesServiceBack.getAll();
+    this.heroes = result.heroes;
   }
 
 }
