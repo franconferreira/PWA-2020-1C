@@ -1,0 +1,67 @@
+Modales : 
+	ngBootstrap
+EDITAR Y CREAR
+	1. Crear vistas distintas ( nuevo + editar )
+	2. Nuevo + editar -> 1 mismo componente 
+
+INVESTIGAR 
+	-> MOMENT JS
+	-> Eliminar el nav de la ruta login (Interaccion entre componentes, *ngIf)
+
+
+Tarea : 
+	Actualizar el heroe
+	Sacar el nav del login y del registro
+	El "crear heroe" del nav solo se muestra si la persona está autenticada
+	El back debe responder con un JWT
+	Enviar los headers correspondientes cuando el usuario esta logueado (req.headers.authorization)
+	SweetAlert a UI
+	Dentro del back : 
+		-> controllers/
+					heroes
+					admin/heroes
+
+Formas de almacenamiento de información dentro del navegador
+LocalStorage vs SessionStorage
+
+LocalStorage -> "Permanente" aunque se cierre la ventana del navegador este persiste
+sessionStorage -> "volatil" cuando se cierra la ventana del navegador
+	
+	setItem('key','string') -> crea una key
+	getItem('key') -> retorna un string a través de la key
+	removeItem('key'); -> remueve una key
+	clear() -> limpia todo el storage
+
+
+JSON.stringify(object) -> Metodo para convertir un objeto a string
+JSON.parse(string) -> metodo que convierte string en object
+
+Router
+
+/heroes/new
+/app/info/noticia/1
+	-> router.navigate(['heroes','new'])
+	-> router.navigate(['app','info','noticia',1])
+
+	-> router.navigateByUrl('/heroes/new')
+	-> router.navigateByUrl('/app/info/noticia/1')
+
+
+-------------------------------------------------------------------------------------------------------
+Authorization : 'Bearer JWT' Se setea dentro del base.service.ts.
+Para poder enviar headers se debe importar la clase HttpHeaders @angular/common/http
+
+  private getHTTPOptions() {
+    let httpOptions = {};
+    if(sessionStorage.getItem('auth')){ 
+      httpOptions = {
+        headers : new HttpHeaders({
+          Authorization : `Bearer ${JSON.parse(sessionStorage.getItem('auth')).JWT}`
+        })
+      }
+    }
+    return httpOptions;
+  }
+
+ ------------------------------------------------------------------------------------------------
+ sweetAlert -> npm i sweetalert2 (servicios)
