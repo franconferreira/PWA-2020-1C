@@ -8,6 +8,7 @@
         <li class="nav-item active" *ngFor="let ruta of rutas">
           <a class="nav-link text-white" [href]="ruta.link">{{ruta.description}}</a>
         </li>
+        <a class="nav-link text-white" style="cursor: pointer;" (click)="logout()">Salir</a>
 
 
       </ul>

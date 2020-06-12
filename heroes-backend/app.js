@@ -8,7 +8,8 @@ const dotenv = require('dotenv');
 dotenv.config();
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-const heroesRouter = require('./routes/heroes')
+const heroesRouter = require('./routes/heroes');
+const authRouter = require('./routes/auth')
 var app = express();
 app.use(cors());
 app.set('views', path.join(__dirname, 'views'));
@@ -23,10 +24,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/heroes', heroesRouter);
+// app.use('admin/heroes',secured,adminHeroesRouter)
+app.use('/auth',authRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  next(createError(404));
+  // next(createError(404));
+  console.log("Funcion de 404");
+  res.json({status : 404})
 });
 
 // error handler

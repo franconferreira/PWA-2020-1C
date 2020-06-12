@@ -9,6 +9,7 @@ import { HeroesComponent } from './components/heroes/heroes.component';
 import { HeroeComponent } from './components/heroe/heroe.component';
 import { NuevoHeroeComponent } from './components/nuevo-heroe/nuevo-heroe.component';
 import {HttpClientModule} from '@angular/common/http';
+import { LoginComponent } from './components/login/login.component';
 // PUT -> RUTA/ID {OBJ} (HEADER)
 // GET -> RUTA/ID (HEADER)
 // POST -> RUTA {} (HEADER)
@@ -19,7 +20,8 @@ import {HttpClientModule} from '@angular/common/http';
     NavbarComponent,
     HeroesComponent,
     HeroeComponent,
-    NuevoHeroeComponent
+    NuevoHeroeComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

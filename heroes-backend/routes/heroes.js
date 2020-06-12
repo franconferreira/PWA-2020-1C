@@ -44,6 +44,12 @@ router.post('/new',async(req,res)=> {
     }
 })
 
-
+router.put('/', async(req,res)=> {
+    try {
+        
+    } catch (error) {
+        res.sendStatus(500);
+    }
+})
 
 module.exports = router;

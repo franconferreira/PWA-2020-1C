@@ -15,7 +15,8 @@
                 <div class="form-group">
                     <label for="casa">Casa * </label>
                     <select class="form-control" formControlName="casa" id="casa">
-                        <option value="1">Marvel</option>
+                        <option selected disabled>Elegir casa</option>
+                        <option  value="1">Marvel</option>
                         <option value="2">DC</option>
                     </select>
                     <span class="text-center text-danger" *ngIf="form.get('casa').status != 'VALID' && form.get('casa').touched">Campo obligatorio</span>
@@ -25,9 +26,9 @@
                 <div class="form-group">
                     <!-- routerLink -->
                     <label for="fecha_nacimiento">Aparicion *</label>
-                    <input type="date" formControlName="aparicion" id="aparicion" class="form-control">
+                    <input type="text" formControlName="aparicion" id="aparicion" class="form-control">
                 </div>
-                <button type="submit" [disabled]="form.invalid" class="btn btn-primary btn-block">Agregar</button>
+                <button type="submit" [disabled]="form.invalid" class="btn btn-primary btn-block">{{message}}</button>
             </form>
         </div>
     </div>
